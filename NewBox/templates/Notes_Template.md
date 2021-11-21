@@ -9,6 +9,8 @@ Type:[#RoomTypeBadge]</br>
 Difficulty:[#DifficultyBadge]</br>
 Ip Address:``` [#MachineIP] ```</br>
 
+<div style="page-break-after: always;"></div>
+
 # Initial Recon
 
 ## Nmap Output
