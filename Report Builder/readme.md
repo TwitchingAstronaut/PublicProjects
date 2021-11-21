@@ -4,8 +4,15 @@ create PDF report from notes built with [newbox.sh](https://github.com/Twitching
 ## Requirements
 
 - need to install NPM<br>
-```apt-get install npm```
 - need to install [MDPDF](https://github.com/BlueHatbRit/mdpdf)<br>
-```npm install mdpdf -g```<br>
-or follow the instructions from [MDPDF#Instructions](https://github.com/BlueHatbRit/mdpdf#installation)
 
+
+## Installation
+
+Copy and paste the folowing
+
+```bash
+apt-get update
+apt-get install npm
+npm install mdpdf -g
+```
