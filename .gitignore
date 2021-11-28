@@ -1,0 +1,4 @@
+**/*.code-workspace
+**/*.ovpn
+**/hydra.restore
+**/*.ssh
