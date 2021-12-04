@@ -5,9 +5,9 @@
 [#BoxLogo]
 
 ## Info about [#MachineName]
-Type:[#RoomTypeBadge]</br>
-Difficulty:[#DifficultyBadge]</br>
+[#RoomTypeBadge][#DifficultyBadge]</br>
 Ip Address:``` [#MachineIP] ```</br>
+Description: [#Description]
 
 <div style="page-break-after: always;"></div>
 
@@ -15,11 +15,11 @@ Ip Address:``` [#MachineIP] ```</br>
 
 ## Nmap Output
 
-``[#Nmap_data]``
+```[#Nmap_data]```
 
-## Gobuster/Dirbuster
+## Gobuster/Dirbuster/Feroxbuster
 
-``[#gobuster_data]``
+```[#gobuster_data]```
 
 ### Possible Credentials Found
 
