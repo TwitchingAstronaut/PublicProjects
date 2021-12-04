@@ -1,0 +1,8 @@
+- [x] newBox.sh
+- [ ] Report Builder
+    - look at combining Report Builder & Report Compile
+    - actually build it
+- [ ] Report Compile (see above)
+- [ ] Autoscan
+    - actually build it
+    - maybe just use Autorecon instead
