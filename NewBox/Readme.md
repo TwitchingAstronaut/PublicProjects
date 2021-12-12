@@ -15,7 +15,8 @@ Bash script for creating a directory structure and Notes File for CTF Boxes (Cur
     - Room Image URL.
     - Room Type.
     - Room Dificulty.
-    - Room Description
+    - Room Description.
+    - Room Tags.
 
 4. Selects the correct Badges based on the json room data.
 5. Copies notes_template.md to the "Room" directory and renames it to "room"_Notes.md

@@ -33,10 +33,12 @@ NOTE_MAKER()
     mkdir $ROOM
     mkdir $ROOM/assets
     mv $ROOM.json ./$ROOM/$ROOM.json
+    RM_TITLE="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.title')"
     RM_IMG="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.image')"
     RM_DIFF="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.difficulty')"
     RM_TYPE="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.type')"
     RM_DESC="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.description')"
+    RM_TAGS="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.tags[]' | tr -s '\n\"' ' ' | sed 's/^[[:blank:]]*//;s/[[:blank:]]*$//')"
     curl $RM_IMG -o ./$ROOM/assets/$ROOM.png
     RM_IMG_HTML="<img src='"./assets/$ROOM.png"' height="100" width="100">"
     cp ~/PenTesting/Templates/Notes_Template.md ./"$ROOM"/"$ROOM"_notes.md
@@ -50,12 +52,13 @@ NOTE_MAKER()
     if [ "$RM_TYPE" == "challenge" ]; then cp ../../Templates/Box_Type-Capture_The_Flag-blue.png ./assets/Box_Type-Capture_The_Flag-blue.png; RM_TYPE_BADGE="![](./assets/Box_Type-Capture_The_Flag-blue.png)"
         elif [ "$RM_TYPE" == "walkthrough" ]; then cp ../../Templates/Box_Type-Walk--Through-success.png ./assets/Box_Type-Walk--Through-success.png; RM_TYPE_BADGE="![](./assets/Box_Type-Walk--Through-success.png)"
     fi
-    sed "s/\[#MachineName]/$1/" "$ROOM"_notes.md -i
+    sed "s/\[#MachineName]/$RM_TITLE/" "$ROOM"_notes.md -i
     sed "s@\[#BoxLink]@https://tryhackme.com/room/"$ROOM"@" "$ROOM"_notes.md -i
     sed "s@\[#BoxLogo]@$RM_IMG_HTML@" "$ROOM"_notes.md -i
     sed "s@\[#DifficultyBadge]@$RM_DIFF_BADGE@" "$ROOM"_notes.md -i
     sed "s@\[#RoomTypeBadge]@$RM_TYPE_BADGE@" "$ROOM"_notes.md -i
     sed "s@\[#Description]@$RM_DESC@" "$ROOM"_notes.md -i
+    sed "s@\[#TAGS]@$RM_TAGS@" "$ROOM"_notes.md -i
 }
 
 if [[ $1 == "-h" || $1 == "" ]]; then USAGE_INFO

@@ -2,3 +2,5 @@
 **/*.ovpn
 **/hydra.restore
 **/*.ssh
+**/*.old
+**/*.bak
