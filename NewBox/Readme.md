@@ -6,9 +6,9 @@ Bash script for creating a directory structure and Notes File for CTF Boxes (Cur
 ./newBox.sh "Box Name"  ```./newBox.sh "Advent of Cyber 3"``` <br>
 ./newBox.sh Roomname    ```./newBox.sh road```
 
-## Specifics
+## What it Does
 
-./newbox.sh 
+./newbox.sh < room code >
 1. Creates a new directory with lowercase and spaces removed.
 2. Curls the TryhackMe API and downloads the json for the room & saves it with name "room".json.
 3. Extracts the: 
