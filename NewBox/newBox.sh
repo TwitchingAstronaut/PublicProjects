@@ -15,7 +15,7 @@ GET_RM_INFO()
 RM_CHECK()
 {
     if [ "$RM_EXIST" == "true" ]; then echo "room found"; NOTE_MAKER
-        elif [ "$RM_EXIST" == "false" ]; then echo "room NOT found"; rm ./$ROOM.json
+        elif [ "$RM_EXIST" == "false" ]; then echo "${RED}room NOT found${NC}"; rm ./$ROOM.json
         echo "Please enter the correct room name:"; read NEW_RM_NAME; GET_RM_INFO $NEW_RM_NAME
     fi
 }
@@ -31,7 +31,7 @@ USAGE_INFO()
 NOTE_MAKER()
 {    
     mkdir $ROOM
-    mkdir $ROOM/assets
+    mkdir $ROOM/assets && mkdir $ROOM/exploit && mkdir $ROOM/loot && mkdir $ROOM/scans
     mv $ROOM.json ./$ROOM/$ROOM.json
     RM_TITLE="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.title')"
     RM_IMG="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.image')"
@@ -40,7 +40,7 @@ NOTE_MAKER()
     RM_DESC="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.description')"
     RM_TAGS="$(cat ./$ROOM/$ROOM.json | jq -r '.'$ROOM'.tags[]' | tr -s '\n\"' ' ' | sed 's/^[[:blank:]]*//;s/[[:blank:]]*$//')"
     curl $RM_IMG -o ./$ROOM/assets/$ROOM.png
-    RM_IMG_HTML="<img src='"./assets/$ROOM.png"' height="100" width="100">"
+    RM_IMG_HTML="<p align="center"><img src='"./assets/$ROOM.png"' height="200" width="200"></p>"
     cp ~/PenTesting/Templates/Notes_Template.md ./"$ROOM"/"$ROOM"_notes.md
     cd "$ROOM"
     if [ "$RM_DIFF" == "info" ]; then cp ../../Templates/Difficulty-Info-blue.png ./assets/Difficulty-Info-blue.png; RM_DIFF_BADGE="![](./assets/Difficulty-Info-blue.png)"

@@ -23,22 +23,7 @@ Bash script for creating a directory structure and Notes File for CTF Boxes (Cur
 6. Replaces the Tags in the Template file with the data from step 3.
 
 ## TODO
-
-[x] Error Checking
-
-[x] Static Images for Badges.
-
-[ ]Custom Images for badges
-
-[ ] Usable for HackTheBox
-
-[ ] port to Python (maybe)
-
-[ ] ???
-
-[ ] profit?
-
-
+ [see TODO file](todo)
 ## Acknowledgments 
 
 - [TryHackMe](https://tryhackme.com/)
